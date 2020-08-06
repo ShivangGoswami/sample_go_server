@@ -8,6 +8,7 @@ import { MainServiceService } from '../main-service.service';
 })
 export class MainpageComponent implements OnInit {
   greetingMessage;
+  timeStamp;
   constructor(public mainService: MainServiceService) { }
 
   ngOnInit() {
@@ -16,6 +17,7 @@ export class MainpageComponent implements OnInit {
   getData(){
     this.mainService.getGreeting().subscribe((data)=>{
       this.greetingMessage = data['greeting']
+      this.timeStamp = data['timestamp']
     },(err)=>{
       console.log(err);
     })
