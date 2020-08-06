@@ -19,7 +19,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	mux := http.NewServeMux()
-	mux.Handle("/", http.FileServer(http.Dir("testApp/dist/testApp")))
+	mux.Handle("/", http.FileServer(http.Dir("../testApp/dist/testApp")))
 	mux.HandleFunc("/endpoint", handler)
 	handler := cors.Default().Handler(mux)
 	http.ListenAndServe(":1234", handler)
